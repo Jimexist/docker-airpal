@@ -15,7 +15,7 @@ RUN ./gradlew clean shadowJar
 ADD reference.yml reference.yml
 
 CMD ["java", "-server", "-Duser.timezone=UTC", "-cp", \
-    "/app/airpal-master/build/libs/airpal-*-all.jar", \
+    "build/airpal-0.1.0-SNAPSHOT-all.jar", \
     "com.airbnb.airpal.AirpalApplication", \
     "server", "reference.yml"]
 
