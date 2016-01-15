@@ -1,4 +1,4 @@
-FROM java:8u66
+FROM java:openjdk-8-jdk
 
 RUN apt-get update && apt-get install -y \
     build-essential \
