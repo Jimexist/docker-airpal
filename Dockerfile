@@ -11,11 +11,9 @@ RUN unzip /tmp/airpal.zip -d /app && rm /tmp/airpal.zip
 WORKDIR /app/airpal-master
 
 RUN ./gradlew clean shadowJar
+RUN cp reference.example.yml reference.yml
+ADD ./entrypoint.sh entrypoint.sh
 
-ADD reference.yml reference.yml
-
-CMD ["java", "-server", "-Duser.timezone=UTC", "-cp", \
-    "build/airpal-0.1.0-SNAPSHOT-all.jar", \
-    "com.airbnb.airpal.AirpalApplication", \
-    "server", "reference.yml"]
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["java"]
 
