@@ -13,6 +13,8 @@ WORKDIR /app/airpal-master
 RUN ./gradlew clean shadowJar
 RUN cp reference.example.yml reference.yml
 ADD ./entrypoint.sh entrypoint.sh
+EXPOSE 8081
+EXPOSE 8082
 
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["java"]
